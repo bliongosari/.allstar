@@ -1,28 +1,9 @@
-type OrgConfig struct {
-	// OptConfig is the standard org-level opt in/out config, RepoOverride applies to all
-	// BP config.
-	OptConfig config.OrgOptConfig `yaml:"optConfig"`
-
-	// Action defines which action to take, default log, other: issue...
-	Action string `yaml:"action"`
-
-	// EnforceDefault : set to true to enforce policy on default branch, default true.
-	EnforceDefault bool `yaml:"enforceDefault"`
-
-	// EnforceBranches is a map of repos and branches. These are other
-	// non-default branches to enforce policy on, such as branches which releases
-	// are made from.
-	EnforceBranches map[string][]string `yaml:"enforceBranches"`
-
-	// RequireApproval : set to true to enforce approval on PRs, default true.
-	RequireApproval bool `yaml:"requireApproval"`
-
-	// ApprovalCount is the number of required PR approvals, default 1.
-	ApprovalCount int `yaml:"approvalCount"`
-
-	// DismissStale : set to true to require PR approvalse be dismissed when a PR is updated, default true.
-	DismissStale bool `yaml:"dismissStale"`
-
-	// BlockForce : set to true to block force pushes, default true.
-	BlockForce bool `yaml:"blockForce"`
-}
+optConfig:
+  optOutStrategy: true
+  disableRepoOverride: true
+action: issue
+enforceDefault: true
+requireApproval: true
+approvalCount: 1
+dismissStale: false
+blockForce: true
